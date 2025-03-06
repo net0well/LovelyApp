@@ -21,7 +21,7 @@ Real-time chat for conversations between users
 Notification and alert system
 Advanced privacy and security settings
 
-##In Development
+## In Development
 
 This project is in active development, with updates and new features being implemented regularly.
 Goals
