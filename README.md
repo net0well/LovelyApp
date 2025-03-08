@@ -1,7 +1,7 @@
 # Lovely
 
 <div align="center">
-  <img src="https://i.ibb.co/r2nS2grs/love-logotype-love-heart-loving-red-and-blue.png" alt="Lovely Logo" width="250">
+  <img href="https://i.ibb.co/r2nS2grs/love-logotype-love-heart-loving-red-and-blue.png" alt="Lovely Logo" width="250">
 </div>
 
 Lovely is a modern dating app that helps people connect and meet new matches. It emphasizes authenticity with features like photo verification and real-time chat.
