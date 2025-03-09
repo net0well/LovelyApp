@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
@@ -14,7 +15,7 @@ export class NavComponent {
   loggedIn = false;
   model: any = {};
 
-  login(){
+  Login(){
     this.accountService.Login(this.model).subscribe({
       next: response => {
         console.log(response);
@@ -24,5 +25,10 @@ export class NavComponent {
         console.log(error);
       }
     })
+  }
+
+  Logout() {
+    console.log('Logout method called');
+    this.loggedIn = false;
   }
 }
