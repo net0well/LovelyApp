@@ -1,0 +1,13 @@
+.navbar .nav-link:hover {
+  background-color: rgba(255, 75, 145, 0.15);
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .nav-item {
+    margin: 5px 0;
+  }
+}
