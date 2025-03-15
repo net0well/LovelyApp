@@ -1,25 +1,90 @@
-<div class="container mt-5">
-  <div style="text-align: center">
+<div class="home-container" style="background-color: #F9FEFF; min-height: 80vh; padding-top: 40px;">
+  <div class="container">
     @if(!registerMode){
-      <h1>Find your match</h1>
-      <p class="lead">Come on in to view your matches... all you need to do is sign up!</p>
-      <div class="text-center">
-        <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
-        <button class="btn btn-info btn-lg me-2">Learn more</button>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-6 text-center">
+          <div style="max-width: 500px; margin: 0 auto; padding: 20px;">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-3">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="#FF4B91" stroke="none" />
+            </svg>
+            <h1 style="font-weight: 700; color: #FF4B91; margin-bottom: 15px; letter-spacing: 0.5px; font-size: 2.5rem;">Encontre seu amor</h1>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 25px;">Entre para descobrir pessoas compatíveis e começar novas histórias!</p>
+            <div class="d-flex justify-content-center gap-3">
+              <button (click)="registerToggle()" class="btn"
+                      style="border-radius: 25px; font-weight: 500; padding: 10px 28px; background-color: #FF4B91; color: white; border: none; font-size: 1rem; box-shadow: 0 3px 10px rgba(255, 75, 145, 0.3); transition: all 0.3s ease;">
+                Registre-se
+              </button>
+              <button class="btn"
+                      style="border-radius: 25px; font-weight: 500; padding: 10px 28px; background-color: #BEF8FF; color: #FF4B91; border: none; font-size: 1rem; box-shadow: 0 3px 10px rgba(190, 248, 255, 0.6); transition: all 0.3s ease;">
+                Saiba mais
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-none d-md-block text-center">
+          <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c3527378-5d94-49aa-9040-b55cb70aa4a2/d7qxlbh-1a3544d4-d4a8-4511-b8c4-a77fe7b0ec27.jpg/v1/fill/w_1024,h_788,q_75,strp/haruno_sakura___love_by_celious_d7qxlbh-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzg4IiwicGF0aCI6IlwvZlwvYzM1MjczNzgtNWQ5NC00OWFhLTkwNDAtYjU1Y2I3MGFhNGEyXC9kN3F4bGJoLTFhMzU0NGQ0LWQ0YTgtNDUxMS1iOGM0LWE3N2ZlN2IwZWMyNy5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.xh_vIxPRktwvDxVWbRqusqzcmN9f_FZnIXiHuUfz4m4" alt="Pessoas felizes conectando" style="max-width: 100%; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+        </div>
       </div>
 
-    } @else {
-
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-4">
-            <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      <!-- Seção de características -->
+      <div class="row mt-4 pt-3">
+        <div class="col-12 text-center mb-4">
+          <h2 style="font-weight: 600; color: #FF4B91; font-size: 1.8rem;">Por que escolher Lovely?</h2>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div style="background: linear-gradient(to bottom right, white, #FBFBFF); border-radius: 12px; padding: 25px; height: 100%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid rgba(190, 248, 255, 0.5); transition: transform 0.3s ease;">
+            <div style="background-color: rgba(255, 75, 145, 0.1); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#FF4B91" class="bi bi-heart-pulse" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053.918 3.995.78 5.323 1.508 7H.43c-2.128-5.697 4.165-8.83 7.394-5.857.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17c3.23-2.974 9.522.159 7.394 5.856h-1.078c.728-1.677.59-3.005.108-3.947C13.486.878 10.4.28 8.717 2.01L8 2.748ZM2.212 10h1.315C4.593 11.183 6.05 12.458 8 13.795c1.949-1.337 3.407-2.612 4.473-3.795h1.315c-1.265 1.566-3.14 3.25-5.788 5-2.648-1.75-4.523-3.434-5.788-5Z"/>
+                <path d="M10.464 3.314a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.5a.5.5 0 0 0 0 1H4a.5.5 0 0 0 .416-.223l1.473-2.209 1.647 4.118a.5.5 0 0 0 .945-.049l1.598-5.593 1.457 3.642A.5.5 0 0 0 12 9h3.5a.5.5 0 0 0 0-1h-3.162l-1.874-4.686Z"/>
+              </svg>
+            </div>
+            <h3 style="font-weight: 600; font-size: 1.15rem; color: #FF4B91; margin-bottom: 12px;">Combinações inteligentes</h3>
+            <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Nosso algoritmo busca parceiros que realmente combinam com você, baseado em interesses e personalidades compatíveis.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div style="background: linear-gradient(to bottom right, white, #FBFBFF); border-radius: 12px; padding: 25px; height: 100%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid rgba(190, 248, 255, 0.5); transition: transform 0.3s ease;">
+            <div style="background-color: rgba(255, 75, 145, 0.1); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#FF4B91" class="bi bi-shield-check" viewBox="0 0 16 16">
+                <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+            </div>
+            <h3 style="font-weight: 600; font-size: 1.15rem; color: #FF4B91; margin-bottom: 12px;">Ambiente seguro</h3>
+            <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Todos os perfis são verificados e nosso sistema prioriza sua privacidade em cada interação na plataforma.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div style="background: linear-gradient(to bottom right, white, #FBFBFF); border-radius: 12px; padding: 25px; height: 100%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid rgba(190, 248, 255, 0.5); transition: transform 0.3s ease;">
+            <div style="background-color: rgba(255, 75, 145, 0.1); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#FF4B91" class="bi bi-chat-heart" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.965 12.695a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2"/>
+                <path d="M8 5.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+              </svg>
+            </div>
+            <h3 style="font-weight: 600; font-size: 1.15rem; color: #FF4B91; margin-bottom: 12px;">Conexões reais</h3>
+            <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Facilitamos conversas genuínas que levam a relacionamentos significativos e duradouros.</p>
           </div>
         </div>
       </div>
+
+      <!-- Banner inferior -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div style="background: linear-gradient(135deg, #FF4B91, #FF78AB); border-radius: 12px; padding: 25px; text-align: center; box-shadow: 0 4px 15px rgba(255, 75, 145, 0.25);">
+            <h3 style="color: white; font-weight: 600; margin-bottom: 10px; font-size: 1.4rem;">Milhares de pessoas já encontraram seu par ideal</h3>
+            <p style="color: white; font-size: 1rem; opacity: 0.9; margin-bottom: 15px;">Faça parte dessa história de sucesso. Registre-se hoje!</p>
+            <button (click)="registerToggle()" class="btn" style="background-color: white; color: #FF4B91; font-weight: 500; border-radius: 25px; padding: 8px 25px; border: none;">Começar agora</button>
+          </div>
+        </div>
+      </div>
+
+    } @else {
+      <div style="max-width: 450px; margin: 0 auto; padding: 10px;">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
     }
-
   </div>
-
-
 </div>
