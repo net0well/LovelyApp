@@ -15,3 +15,7 @@
 .dropdown-toggle, .dropdown-item{
   cursor: pointer;
 }
+
+.bgactivelink{
+  background-color: rgba(255, 75, 145, 0.1);
+}
