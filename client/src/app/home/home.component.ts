@@ -1,11 +1,12 @@
 import {Component, inject, OnInit} from '@angular/core';
 import { RegisterComponent } from '../register/register.component';
 import {HttpClient} from "@angular/common/http";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RegisterComponent],
+  imports: [RegisterComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -33,4 +34,5 @@ export class HomeComponent implements OnInit{
       complete: () => console.log("Request completed")
     })
   }
+
 }
