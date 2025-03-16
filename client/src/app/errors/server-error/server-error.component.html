@@ -1,0 +1,91 @@
+<!-- Página de erro com estilo moderno e interativo -->
+<div class="error-container">
+  <div class="error-card">
+    <!-- Ícone de erro animado -->
+    <div class="error-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#FF4B91" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+      </svg>
+    </div>
+
+    <h2 class="error-title">Erro Interno do Servidor</h2>
+
+    @if(error){
+      <div class="error-message">
+        <div class="error-badge">
+          <span>ERRO</span>
+        </div>
+        <h5>{{error.message}}</h5>
+      </div>
+
+      <div class="error-note">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-info-circle me-2" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
+        <span>Se você está vendo este erro, o problema não está no Angular!</span>
+      </div>
+
+      <div class="next-steps">
+        <h4>O que fazer agora?</h4>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              Abra as ferramentas de desenvolvedor do Chrome e verifique a requisição com falha na aba de rede
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              Examine a URL da requisição com problema
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              Reproduza o erro no Postman - se conseguir reproduzir, o problema não está no Angular!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-trace-container">
+        <div class="stack-trace-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-code-square me-2" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
+          </svg>
+          <h5>Stack Trace</h5>
+          <div class="tip-badge">
+            <span>Dica: Verifique as primeiras duas linhas para identificar exatamente qual código causou o problema!</span>
+          </div>
+        </div>
+        <pre class="stack-trace">{{error.details}}</pre>
+      </div>
+
+      <div class="buttons-container">
+        <a routerLink="/" class="btn-home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door me-2" viewBox="0 0 16 16">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+          </svg>
+          Voltar para a página inicial
+        </a>
+      </div>
+    }
+    @else {
+      <div class="error-message">
+        <h5>Ocorreu um erro inesperado no servidor.</h5>
+      </div>
+
+      <div class="buttons-container">
+        <a routerLink="/" class="btn-home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door me-2" viewBox="0 0 16 16">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+          </svg>
+          Voltar para a página inicial
+        </a>
+      </div>
+    }
+  </div>
+</div>

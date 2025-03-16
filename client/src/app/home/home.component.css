@@ -1,0 +1,91 @@
+/* home.component.scss */
+
+/* Animações para elementos da página */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação para corações flutuantes */
+.heart {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: float 4s ease-in-out infinite;
+}
+
+.heart1 { animation-delay: 0s; }
+.heart2 { animation-delay: 1s; }
+.heart3 { animation-delay: 2s; }
+.heart4 { animation-delay: 3s; }
+
+/* Efeito hover para cartões de recursos */
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: #FF4B91;
+}
+
+/* Efeito hover para cartões de estatísticas */
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  border-color: #FF4B91;
+}
+
+/* Efeito hover para a imagem principal */
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Efeito hover para botões */
+.register-btn:hover {
+  background-color: #E43A7E !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 75, 145, 0.5) !important;
+}
+
+.info-btn:hover {
+  background-color: #A5E1FF !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(190, 248, 255, 0.8) !important;
+}
+
+/* Faz os elementos aparecerem com animação */
+.fun-stats, .testimonial {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Aplica o efeito de pulsação ao coração */
+.floating-heart svg {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Estilo para o botão pulsante */
+.pulse-btn {
+  transition: all 0.3s ease;
+}
+
+.pulse-btn:hover {
+  background-color: #F5F5F5 !important;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3) !important;
+}

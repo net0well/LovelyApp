@@ -1,0 +1,287 @@
+/* Estilos para a página de erro interna do servidor */
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f9f9ff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.error-card {
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(255, 75, 145, 0.15);
+  padding: 30px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Ícone de erro animado */
+.error-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.error-icon svg {
+  animation: pulse-error 2s infinite;
+}
+
+@keyframes pulse-error {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Título do erro */
+.error-title {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.error-title::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background-color: #FF4B91;
+  bottom: -10px;
+  left: 20%;
+  border-radius: 2px;
+}
+
+/* Mensagem de erro */
+.error-message {
+  background-color: #fff0f5;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  position: relative;
+  border-left: 5px solid #FF4B91;
+}
+
+.error-message h5 {
+  color: #FF4B91;
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.error-badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background-color: #FF4B91;
+  color: white;
+  padding: 3px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(255, 75, 145, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* Nota de informação */
+.error-note {
+  display: flex;
+  align-items: center;
+  background-color: #f0f9ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.error-note span {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Passos a seguir */
+.next-steps {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.next-steps h4 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.next-steps h4::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #FF4B91;
+  bottom: -8px;
+  left: 0;
+  border-radius: 1.5px;
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  background-color: #fff0f5;
+}
+
+.step-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  height: 30px;
+  background-color: #FF4B91;
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.step-text {
+  color: #555;
+  font-weight: 400;
+}
+
+/* Stack Trace */
+.stack-trace-container {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.stack-trace-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.stack-trace-header h5 {
+  margin: 0;
+  margin-right: 15px;
+  color: #333;
+  font-weight: 600;
+}
+
+.tip-badge {
+  background-color: #f0f9ff;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #0078d7;
+  margin-top: 5px;
+}
+
+.stack-trace {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  position: relative;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Botões de ação */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn-home, .btn-report {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-home {
+  background-color: #FF4B91;
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 75, 145, 0.3);
+}
+
+.btn-home:hover {
+  background-color: #ff3380;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(255, 75, 145, 0.4);
+}
+
+.btn-report {
+  background-color: white;
+  color: #FF4B91;
+  border: 1px solid #FF4B91;
+}
+
+.btn-report:hover {
+  background-color: #fff0f5;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .error-card {
+    padding: 20px;
+  }
+
+  .error-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-home, .btn-report {
+    width: 100%;
+  }
+}
