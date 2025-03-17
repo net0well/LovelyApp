@@ -1,91 +1,173 @@
-/* home.component.scss */
-
-/* Animações para elementos da página */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background: linear-gradient(135deg, #BEF8FF, #D9FAFF);
+  box-shadow: 0 4px 15px rgba(255, 75, 145, 0.15);
+  padding: 10px 0;
+  border-bottom: 2px dashed #FF4B91;
 }
 
-@keyframes pulse {
+
+body {
+  padding-top: 76px;
+  overflow-x: hidden;
+}
+
+
+html {
+  overflow-y: scroll;
+}
+
+
+.navbar-brand {
+  font-weight: 700;
+  color: #FF4B91;
+  font-size: 1.4rem;
+}
+
+.navbar-brand svg {
+  animation: pulse-heart 2s infinite;
+}
+
+@keyframes pulse-heart {
   0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
 
-@keyframes heartbeat {
-  0% { transform: scale(1); }
-  14% { transform: scale(1.1); }
-  28% { transform: scale(1); }
-  42% { transform: scale(1.1); }
-  70% { transform: scale(1); }
-}
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Animação para corações flutuantes */
-.heart {
-  font-size: 1.5rem;
-  opacity: 0.8;
-  animation: float 4s ease-in-out infinite;
-}
-
-.heart1 { animation-delay: 0s; }
-.heart2 { animation-delay: 1s; }
-.heart3 { animation-delay: 2s; }
-.heart4 { animation-delay: 3s; }
-
-/* Efeito hover para cartões de recursos */
-.feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  border-color: #FF4B91;
-}
-
-/* Efeito hover para cartões de estatísticas */
-.stat-card:hover {
-  transform: translateY(-5px) scale(1.03);
-  border-color: #FF4B91;
-}
-
-/* Efeito hover para a imagem principal */
-.image-container:hover img {
-  transform: scale(1.05);
-}
-
-/* Efeito hover para botões */
-.register-btn:hover {
-  background-color: #E43A7E !important;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 75, 145, 0.5) !important;
-}
-
-.info-btn:hover {
-  background-color: #A5E1FF !important;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(190, 248, 255, 0.8) !important;
-}
-
-/* Faz os elementos aparecerem com animação */
-.fun-stats, .testimonial {
-  animation: fadeUp 0.8s ease-out forwards;
-}
-
-/* Aplica o efeito de pulsação ao coração */
-.floating-heart svg {
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
-
-/* Estilo para o botão pulsante */
-.pulse-btn {
+.nav-link {
+  font-weight: 600;
+  border-radius: 15px;
+  padding: 8px 15px;
   transition: all 0.3s ease;
+  color: #FF4B91;
+  margin: 0 3px;
+
+  border-bottom: 2px solid transparent;
 }
 
-.pulse-btn:hover {
-  background-color: #F5F5F5 !important;
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3) !important;
+.nav-link:hover {
+  background-color: rgba(255, 75, 145, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background-color: rgba(255, 75, 145, 0.2);
+  border-bottom: 2px solid #FF4B91;
+}
+
+
+.dropdown-toggle {
+  font-weight: 600;
+  color: #FF4B91;
+  padding: 8px 15px;
+  border-radius: 15px;
+  background-color: rgba(255, 75, 145, 0.1);
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  border-radius: 12px;
+  border: 2px solid rgba(255, 75, 145, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.dropdown-item {
+  color: #FF4B91;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 75, 145, 0.1);
+}
+
+.dropdown-divider {
+  border-top: 1px dashed rgba(255, 75, 145, 0.2);
+  margin: 5px 0;
+}
+
+
+.form-control {
+  border-radius: 15px;
+  border: 1px solid #FF4B91;
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 3px rgba(255, 75, 145, 0.2);
+  border-color: #FF4B91;
+}
+
+
+.login-btn {
+  border-radius: 15px;
+  font-weight: 600;
+  padding: 5px 15px;
+  background: linear-gradient(45deg, #FF4B91, #FF78AB);
+  color: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(255, 75, 145, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 75, 145, 0.4);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+
+.navbar-toggler {
+  border: none;
+  background-color: rgba(255, 75, 145, 0.1);
+  border-radius: 8px;
+}
+
+
+.navbar .container {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+
+.home-container {
+  background-color: #F9FEFF;
+  min-height: 80vh;
+
+}
+
+
+@media (max-width: 767px) {
+  .nav-item {
+    margin-bottom: 5px;
+  }
+
+  form.d-flex {
+    flex-wrap: wrap;
+  }
+
+  form.d-flex .form-control {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  form.d-flex .login-btn {
+    width: 100%;
+    margin-top: 5px;
+  }
 }
