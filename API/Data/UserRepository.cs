@@ -1,3 +1,4 @@
+using System.Security.Cryptography.Xml;
 using API.Entities;
 using API.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +26,9 @@ public class UserRepository : IUserRepository
 
     public async Task<IEnumerable<AppUser>> GetUsersAsync()
     {
-        return await _context.Users.ToListAsync();
+        return await _context.Users
+            .Include(x => x.Photos)
+            .ToListAsync();
     }
 
     public async Task<AppUser?> GetUserByIdAsync(int id)
@@ -35,6 +38,8 @@ public class UserRepository : IUserRepository
 
     public async Task<AppUser?> GetUserByUsernameAsync(string username)
     {
-        return await _context.Users.FirstOrDefaultAsync(n => n.UserName == username);
+        return await _context.Users
+            .Include(x => x.Photos)
+            .FirstOrDefaultAsync(n => n.UserName == username);
     }
 }
