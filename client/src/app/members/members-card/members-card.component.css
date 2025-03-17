@@ -1,0 +1,54 @@
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(255, 75, 145, 0.3);
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card:hover .image-overlay {
+  opacity: 1;
+}
+
+.card:hover .floating-hearts {
+  opacity: 0.8;
+}
+
+.btn-primary:hover {
+  background-color: white !important;
+  color: #FF4B91 !important;
+  transform: scale(1.1);
+}
+
+/* Animações para os corações */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-10px) rotate(5deg); opacity: 0.9; }
+  100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+}
+
+.floating-hearts > div:nth-child(1) {
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-hearts > div:nth-child(2) {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.floating-hearts > div:nth-child(3) {
+  animation: float 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Animação de pulsação para o botão do meio */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 75, 145, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 75, 145, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 75, 145, 0); }
+}
+
+.list-inline-item:nth-child(2) .btn {
+  animation: pulse 2s infinite;
+}
