@@ -15,24 +15,19 @@ public class UsersController(IUserRepository userRepository, IMapper mapper) : B
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
     {
-        var users =  await userRepository.GetUsersAsync();
-
-        var usersToReturn = mapper.Map<IEnumerable<MemberDto>>(users);
-        
-        return Ok(usersToReturn);
+        var users = await userRepository.GetMembersAsyc();
+        return Ok(users);
     }
     
 
     [HttpGet("{username}")]
     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUser(string username)
     {
-        var user = await userRepository.GetUserByUsernameAsync(username);
+        var user = await userRepository.GetMemberAsync(username);
 
-        var usersToReturn = mapper.Map<MemberDto>(user);
-        
-        if (usersToReturn is null)
+        if (user is null)
             return NotFound();
         
-        return Ok(usersToReturn);
+        return Ok(user);
     }
 }
