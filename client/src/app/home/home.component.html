@@ -1,22 +1,18 @@
 <div class="home-container" style="background-color: #F9FEFF; min-height: 80vh;">
   <div class="container">
     @if(!registerMode){
-      <!-- Hero Section -->
       <div class="row align-items-center justify-content-center">
         <div class="col-md-6 text-center">
           <div class="hero-content" style="max-width: 500px; margin: 0 auto; padding: 20px;">
-            <!-- Coração pulsante animado -->
             <div class="floating-heart" style="animation: float 3s ease-in-out infinite;">
               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-3">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
                       fill="#FF4B91" stroke="none" />
               </svg>
             </div>
-            <!-- Texto com emoji -->
             <h1 style="font-weight: 700; color: #FF4B91; margin-bottom: 15px; letter-spacing: 0.5px; font-size: 2.5rem;">Encontre seu amor ❤️</h1>
             <p style="font-size: 1.1rem; color: #555; margin-bottom: 25px;">O match perfeito está a apenas um clique de distância! ✨</p>
             <div class="d-flex justify-content-center gap-3">
-              <!-- Botão com efeito hover -->
               <button (click)="registerToggle()" class="btn register-btn"
                       style="border-radius: 25px; font-weight: 500; padding: 12px 32px; background-color: #FF4B91; color: white; border: none; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(255, 75, 145, 0.4); transition: all 0.3s ease;">
                 <span>❤️ Registre-se</span>
@@ -29,10 +25,8 @@
           </div>
         </div>
         <div class="col-md-6 d-none d-md-block text-center">
-          <!-- Imagem com efeito de borda e animação -->
           <div class="image-container" style="position: relative; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(255, 75, 145, 0.15);">
             <img src="./assets/love.jpg" alt="Lovely" style="max-width: 100%; transition: transform 0.5s ease;">
-            <!-- Pequenos corações flutuantes -->
             <div class="floating-hearts">
               <div class="heart heart1" style="position: absolute; top: 10%; left: 10%;">❤️</div>
               <div class="heart heart2" style="position: absolute; top: 20%; right: 15%;">💕</div>
@@ -43,7 +37,6 @@
         </div>
       </div>
 
-      <!-- Estatísticas divertidas -->
       <div class="row mt-5 mb-5 fun-stats">
         <div class="col-12 text-center mb-3">
           <h2 style="font-weight: 600; color: #FF4B91; font-size: 1.8rem;">Lovely em números 📊</h2>
@@ -68,7 +61,6 @@
         </div>
       </div>
 
-      <!-- Por que escolher Lovely -->
       <div class="row mt-4 pt-3">
         <div class="col-12 text-center mb-4">
           <h2 style="font-weight: 600; color: #FF4B91; font-size: 1.8rem;">Por que escolher Lovely? 💝</h2>
@@ -111,7 +103,6 @@
         </div>
       </div>
 
-      <!-- Depoimentos -->
       <div class="row mt-5 mb-5">
         <div class="col-12 text-center mb-4">
           <h2 style="font-weight: 600; color: #FF4B91; font-size: 1.8rem;">Histórias de amor que começaram aqui ✨</h2>
@@ -142,7 +133,6 @@
         </div>
       </div>
 
-      <!-- CTA final -->
       <div class="row mt-4 mb-5">
         <div class="col-12">
           <div class="cta-box" style="background: linear-gradient(135deg, #FF4B91, #FF78AB); border-radius: 25px; padding: 35px; text-align: center; box-shadow: 0 10px 30px rgba(255, 75, 145, 0.3);">

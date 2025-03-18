@@ -1,0 +1,135 @@
+/* Estilos adicionais para member-detail.component.css */
+
+.member-detail-container {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.profile-card {
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(255, 75, 145, 0.3);
+}
+
+.profile-header img {
+  transition: all 0.5s ease;
+}
+
+.profile-header:hover img {
+  transform: scale(1.03);
+}
+
+.profile-badge {
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover .profile-badge {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.like-btn, .message-btn {
+  transition: all 0.3s ease;
+}
+
+.like-btn:hover {
+  background-color: #ff2e7e;
+  transform: translateY(-3px);
+}
+
+.message-btn:hover {
+  background-color: #a9f1ff;
+  transform: translateY(-3px);
+}
+
+/* Estilos para as abas */
+.member-tabset .nav-tabs {
+  border: none !important;
+  display: flex;
+  gap: 10px;
+}
+
+.member-tabset .nav-tabs .nav-link {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.member-tabset .nav-tabs .nav-link.active {
+  background-color: white;
+  color: #FF4B91;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.member-tabset .nav-tabs .nav-link:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Animação para os corações flutuantes */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.section-title, .detail-item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.section-title:hover, .detail-item:hover {
+  transform: translateX(5px);
+}
+
+/* Estilo para a galeria de fotos */
+::ng-deep .gallery {
+  --g-backdrop-color: rgba(255, 75, 145, 0.9) !important;
+  --g-thumb-selected-background: #FF4B91 !important;
+}
+
+/* Animação de pulsação para botões importantes */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 75, 145, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 75, 145, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 75, 145, 0);
+  }
+}
+
+.action-buttons button:active {
+  transform: scale(0.95);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-4, .col-8 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .col-4 {
+    margin-bottom: 20px;
+  }
+}

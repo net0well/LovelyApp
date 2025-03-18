@@ -1,1 +1,132 @@
-<h1>{{member?.knownAs}}</h1>
+@if(member){
+  <div class="member-detail-container" style="background-color: #F9FEFF; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(190, 248, 255, 0.3);">
+    <div class="row">
+      <div class="col-4">
+        <div class="profile-card" style="background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 25px rgba(255, 75, 145, 0.2); border: 2px solid rgba(190, 248, 255, 0.5);">
+          <div class="profile-header" style="position: relative;">
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}"
+                 style="width: 100%; border-radius: 16px 16px 0 0; object-fit: cover; height: 300px;">
+            <div class="profile-badge" style="position: absolute; bottom: -20px; right: 20px; background-color: #FF4B91; color: white; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(255, 75, 145, 0.4);">
+              {{member.age}}
+            </div>
+          </div>
+
+          <div class="profile-name" style="padding: 15px; text-align: center;">
+            <h2 style="font-weight: 700; color: #FF4B91; margin: 10px 0; font-size: 1.8rem;">{{member.knownAs}}</h2>
+            <p style="color: #666; margin-bottom: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF4B91" class="bi bi-geo-alt-fill" viewBox="0 0 16 16" style="margin-right: 5px;">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+              </svg>
+              {{member.city}}, {{member.country}}
+            </p>
+          </div>
+
+          <div class="profile-details" style="padding: 0 20px 20px;">
+            <div class="detail-item" style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #BEF8FF;">
+              <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-clock-history" viewBox="0 0 16 16">
+                  <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+                  <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+                  <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Última atividade</p>
+                <p style="margin: 0; font-weight: 600; color: #333;">{{member.lastActive}}</p>
+              </div>
+            </div>
+
+            <div class="detail-item" style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #BEF8FF;">
+              <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-calendar-heart" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5ZM1 14V4h14v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Zm7-6.507c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                </svg>
+              </div>
+              <div>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Membro desde</p>
+                <p style="margin: 0; font-weight: 600; color: #333;">{{member.created}}</p>
+              </div>
+            </div>
+
+            <div class="action-buttons" style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="like-btn" style="flex: 1; border: none; background-color: #FF4B91; color: white; border-radius: 25px; padding: 10px; font-weight: 500; box-shadow: 0 5px 15px rgba(255, 75, 145, 0.3); transition: all 0.3s ease;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" style="margin-right: 5px;">
+                  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                </svg>
+                Curtir
+              </button>
+              <button class="message-btn" style="flex: 1; border: none; background-color: #BEF8FF; color: #FF4B91; border-radius: 25px; padding: 10px; font-weight: 500; box-shadow: 0 5px 15px rgba(190, 248, 255, 0.5); transition: all 0.3s ease;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-heart-fill" viewBox="0 0 16 16" style="margin-right: 5px;">
+                  <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                </svg>
+                Mensagem
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="info-content" style="background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 25px rgba(190, 248, 255, 0.4); height: 100%;">
+          <div class="tab-header" style="background-color: #BEF8FF; padding: 15px; border-radius: 18px 18px 0 0;">
+            <tabset class="member-tabset" style="border: none;">
+              <tab heading="Sobre {{member.knownAs}}" style="color: white; font-weight: 500;">
+                <div class="tab-content" style="padding: 25px;">
+                  <div class="section-title" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                      </svg>
+                    </div>
+                    <h4 style="margin: 0; color: #FF4B91; font-weight: 600;">Descrição</h4>
+                  </div>
+                  <div class="description-box" style="background-color: #F9FEFF; border-radius: 15px; padding: 20px; margin-bottom: 25px; border-left: 4px solid #BEF8FF;">
+                    <p style="margin: 0; color: #555; line-height: 1.6;">{{member.introduction}}</p>
+                  </div>
+
+                  <div class="section-title" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                      </svg>
+                    </div>
+                    <h4 style="margin: 0; color: #FF4B91; font-weight: 600;">Interesses</h4>
+                  </div>
+                  <div class="interests-box" style="background-color: #F9FEFF; border-radius: 15px; padding: 20px; border-left: 4px solid #BEF8FF;">
+                    <p style="margin: 0; color: #555; line-height: 1.6;">{{member.interests}}</p>
+                  </div>
+                </div>
+              </tab>
+
+              <tab heading="Fotos" #photoTab="tab" style="color: white; font-weight: 500;">
+                <div class="tab-content" style="padding: 25px;">
+                  @if(photoTab.active)
+                  {
+                    <div class="photo-gallery-container" style="padding: 15px; background-color: #F9FEFF; border-radius: 15px;">
+                      <gallery [items]="images" class="gallery" thumbs style="border-radius: 10px; overflow: hidden;"></gallery>
+                    </div>
+                  }
+                </div>
+              </tab>
+
+              <tab heading="Mensagens" style="color: white; font-weight: 500;">
+                <div class="tab-content" style="padding: 25px;">
+                  <div class="messages-coming-soon" style="text-align: center; padding: 40px 20px;">
+                    <div style="width: 80px; height: 80px; background-color: rgba(255, 75, 145, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#FF4B91" class="bi bi-envelope-heart" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        <path d="M8 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                      </svg>
+                    </div>
+                    <h4 style="color: #FF4B91; font-weight: 600; margin-bottom: 10px;">Mensagens em breve!</h4>
+                    <p style="color: #666; line-height: 1.6;">Estamos preparando um sistema incrível para você conversar com seus matches. Aguarde novidades! 💬</p>
+                  </div>
+                </div>
+              </tab>
+            </tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
