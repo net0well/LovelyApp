@@ -21,10 +21,9 @@
       {{member().city}}
     </p>
 
-    <!-- Botões movidos para baixo da cidade -->
     <ul class="list-inline text-center mb-0">
       <li class="list-inline-item" style="margin: 0 3px;">
-        <button class="btn btn-primary" style="background-color: #FF4B91; color: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; box-shadow: 0 3px 10px rgba(255, 75, 145, 0.3); transition: all 0.2s ease;">
+        <button routerLink="/members/{{member().userName}}" class="btn btn-primary" style="background-color: #FF4B91; color: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; box-shadow: 0 3px 10px rgba(255, 75, 145, 0.3); transition: all 0.2s ease;">
           <i class="fa fa-user" style="font-size: 0.9rem;"></i>
         </button>
       </li>
