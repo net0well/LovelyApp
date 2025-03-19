@@ -1,0 +1,156 @@
+@if(member){
+  <div class="member-edit-container" style="background-color: #F9FEFF; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(190, 248, 255, 0.3);">
+    <div class="row">
+      <div class="col-4">
+        <h1 style="color: #FF4B91; font-weight: 700; margin-bottom: 20px;">Seu perfil</h1>
+      </div>
+      <div class="col-8">
+        @if(editForm.dirty)
+        {
+          <div class="alert alert-fade-in" style="background-color: rgba(190, 248, 255, 0.3); border-left: 4px solid #FF4B91; border-radius: 10px; padding: 15px;">
+            <p style="margin: 0; color: #555;"><strong style="color: #FF4B91;">Informação: </strong> Você fez alterações. Quaisquer mudanças não salvas serão perdidas.</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+        <div class="profile-card" style="background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 25px rgba(255, 75, 145, 0.2); border: 2px solid rgba(190, 248, 255, 0.5);">
+          <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}"
+               style="width: 100%; border-radius: 16px 16px 0 0; object-fit: cover; height: 300px;">
+
+          <div class="card-body" style="padding: 20px;">
+            <div class="detail-item" style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #BEF8FF;">
+              <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF4B91" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+              </div>
+              <div>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Localização:</p>
+                <p style="margin: 0; font-weight: 600; color: #333;">{{member.city}}, {{member.country}}</p>
+              </div>
+            </div>
+
+            <div class="detail-item" style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #BEF8FF;">
+              <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF4B91" class="bi bi-person-badge" viewBox="0 0 16 16">
+                  <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Idade:</p>
+                <p style="margin: 0; font-weight: 600; color: #333;">{{member.age}}</p>
+              </div>
+            </div>
+
+            <div class="detail-item" style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #BEF8FF;">
+              <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF4B91" class="bi bi-clock-history" viewBox="0 0 16 16">
+                  <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+                  <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+                  <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Última atividade:</p>
+                <p style="margin: 0; font-weight: 600; color: #333;">{{member.lastActive}}</p>
+              </div>
+            </div>
+
+            <div class="detail-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF4B91" class="bi bi-calendar-heart" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5ZM1 14V4h14v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Zm7-6.507c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                </svg>
+              </div>
+              <div>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Membro desde:</p>
+                <p style="margin: 0; font-weight: 600; color: #333;">{{member.created}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer" style="background-color: white; border-top: none; padding: 0 20px 20px;">
+            <button [disabled]="!editForm.dirty"  type="submit" form="editForm" class="save-btn like-btn" style="width: 100%; border: none; background-color: #FF4B91; color: white; border-radius: 25px; padding: 12px; font-weight: 500; box-shadow: 0 5px 15px rgba(255, 75, 145, 0.3); transition: all 0.3s ease; animation: pulse 2s infinite;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16" style="margin-right: 5px;">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+              </svg>
+              Salvar alterações
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="info-content" style="background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 25px rgba(190, 248, 255, 0.4); height: 100%;">
+          <div class="tab-header" style="background-color: #BEF8FF; padding: 15px; border-radius: 18px 18px 0 0;">
+            <tabset class="member-tabset" style="border: none;">
+              <tab heading="Sobre {{member.knownAs}}" style="color: white; font-weight: 500;">
+                <div class="tab-content" style="padding: 25px;">
+                  <form id="editForm" #editForm="ngForm" (ngSubmit)="updateMember()">
+                    <div class="section-title" style="display: flex; align-items: center; margin-bottom: 15px;">
+                      <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                          <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                        </svg>
+                      </div>
+                      <h4 style="margin: 0; color: #FF4B91; font-weight: 600;">Descrição</h4>
+                    </div>
+                    <textarea class="form-control" name="introduction" [(ngModel)]="member.introduction" rows="6" style="border-radius: 15px; border: 1px solid #BEF8FF; padding: 15px; margin-bottom: 25px; background-color: #F9FEFF; resize: none;"></textarea>
+
+                    <div class="section-title" style="display: flex; align-items: center; margin-bottom: 15px;">
+                      <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-heart" viewBox="0 0 16 16">
+                          <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                      </div>
+                      <h4 style="margin: 0; color: #FF4B91; font-weight: 600;">Interesses</h4>
+                    </div>
+                    <textarea class="form-control" name="interests" [(ngModel)]="member.interests" rows="6" style="border-radius: 15px; border: 1px solid #BEF8FF; padding: 15px; margin-bottom: 25px; background-color: #F9FEFF; resize: none;"></textarea>
+
+                    <div class="section-title" style="display: flex; align-items: center; margin-bottom: 15px;">
+                      <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B91" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                          <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                          <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        </svg>
+                      </div>
+                      <h4 style="margin: 0; color: #FF4B91; font-weight: 600;">Localização</h4>
+                    </div>
+                    <div class="location-inputs" style="background-color: #F9FEFF; border-radius: 15px; padding: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
+                      <div class="input-group" style="flex: 1; min-width: 200px;">
+                        <div style="margin-bottom: 8px; color: #555; font-weight: 500;">Cidade:</div>
+                        <input type="text" name="city" [(ngModel)]="member.city" style="width: 100%; border-radius: 25px; border: 1px solid #BEF8FF; padding: 10px 15px; background-color: white;">
+                      </div>
+                      <div class="input-group" style="flex: 1; min-width: 200px;">
+                        <div style="margin-bottom: 8px; color: #555; font-weight: 500;">País:</div>
+                        <input type="text" name="country" [(ngModel)]="member.country" style="width: 100%; border-radius: 25px; border: 1px solid #BEF8FF; padding: 10px 15px; background-color: white;">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </tab>
+
+              <tab heading="Editar fotos" style="color: white; font-weight: 500;">
+                <div class="tab-content" style="padding: 25px; text-align: center;">
+                  <div style="width: 80px; height: 80px; background-color: rgba(255, 75, 145, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#FF4B91" class="bi bi-images" viewBox="0 0 16 16">
+                      <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                      <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+                    </svg>
+                  </div>
+                  <h4 style="color: #FF4B91; font-weight: 600; margin-bottom: 10px;">Editor de fotos em breve!</h4>
+                  <p style="color: #666; line-height: 1.6;">Estamos trabalhando para trazer um incrível editor de fotos para o seu perfil. Aguarde novidades! 📸</p>
+                </div>
+              </tab>
+            </tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
