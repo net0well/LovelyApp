@@ -43,3 +43,18 @@
   border-top: 1px solid #eee;
   padding: 15px 0;
 }
+
+.center-dialog .mat-dialog-container {
+  position: relative;
+}
+
+.center-dialog .mat-dialog-content {
+  max-height: none;
+}
+
+.cdk-overlay-pane.center-dialog {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}

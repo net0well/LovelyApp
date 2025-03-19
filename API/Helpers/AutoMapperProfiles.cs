@@ -21,5 +21,6 @@ public class AutoMapperProfiles : Profile
                             x.IsMain)!.Url));
         
         CreateMap<Photo, PhotoDto>();
+        CreateMap<MemberUpdateDto, AppUser>();
     }
 }
