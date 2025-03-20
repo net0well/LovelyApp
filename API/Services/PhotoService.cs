@@ -34,7 +34,8 @@ public class PhotoService : IPhotoService
                     .Height(500)
                     .Width(500)
                     .Crop("fill")
-                    .Gravity("face"),
+                    .Gravity("face")
+                    .Quality(100),
                 Folder = "lovely"
             };
 
