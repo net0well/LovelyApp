@@ -25,7 +25,7 @@ Lovely is a modern dating app that helps people connect and meet new matches. It
 - **Repository Pattern**: Clean separation of data access logic
 - **Unit of Work Pattern**: Managing database transactions and operations
 - **SignalR**: For real-time communication
-- **RESTful API**: Clean architecture with well-defined endpoints
+- **RESTful API**: Well-defined endpoints
 - **JWT Authentication**: Secure user authentication
 
 ### Frontend
