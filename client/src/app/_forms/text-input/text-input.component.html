@@ -1,0 +1,16 @@
+<div class="mb-3">
+  <label style="font-weight: 500; font-size: 0.9rem; color: #555; margin-bottom: 6px; display: block;">{{label()}}</label>
+  <div class="input-group" style="border-radius: 15px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 1px solid rgba(190, 248, 255, 0.6);">
+        <span class="input-group-text" style="background-color: #BEF8FF; border: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF4B91" class="bi bi-lock" viewBox="0 0 16 16">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/>
+          </svg>
+        </span>
+    <input [class.is-invalid]="control.touched && control.invalid" [type]="type()" class="form-control" [formControl]="control" placeholder="{{label()}}"
+           style="border: none; padding: 10px 15px; font-size: 0.95rem;">
+    <div *ngIf="control.hasError('required')" class="invalid-feedback text-end">{{label()}} é obrigatório</div>
+    <div *ngIf="control.hasError('minlenght')" class="invalid-feedback text-end">A {{label()}} deve ter no mínimo 6 letras</div>
+    <div *ngIf="control.hasError('maxlenght')" class="invalid-feedback text-end">A {{label()}} deve ter no máximo 12 letras</div>
+    <div *ngIf="control.hasError('isMatching')" class="invalid-feedback text-end">Senhas não conferem</div>
+  </div>
+</div>
