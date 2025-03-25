@@ -1,82 +1,111 @@
-<div class="register-container" style="max-width: 400px; margin: 40px auto; padding: 25px; border-radius: 16px; box-shadow: 0 4px 15px rgba(255, 75, 145, 0.12); background: linear-gradient(to bottom right, white, #FEFEFF); border: 1px solid rgba(190, 248, 255, 0.3);">
-  <form [formGroup]="registerForm" (ngSubmit)="register()">
-    <div class="text-center mb-4">
-      <h2 style="font-weight: 600; color: #FF4B91; letter-spacing: 0.5px; font-size: 1.6rem; margin-bottom: 8px;">Crie sua conta</h2>
-      <p style="color: #777; font-size: 0.9rem; margin-bottom: 20px;">Estamos animados para te ajudar a encontrar seu player 2 perfeito</p>
-    </div>
+<div class="register-wrapper">
+  <div class="register-container" [ngClass]="{'has-errors': validationErrors && validationErrors.length > 0}">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="register-form">
+      <div class="text-center mb-4">
+        <h2>Crie sua conta</h2>
+        <p>Estamos animados para te ajudar a encontrar seu player 2 perfeito</p>
+      </div>
 
-    <div class="mb-3" style="padding: 8px; background-color: rgba(255, 75, 145, 0.05); border-radius: 10px;">
-      <label style="margin-right: 10px; color: #777;"> Eu sou:</label>
-      <label class="form-check-label" style="margin-right: 10px; color: #777;">
-        <input type="radio" class="form-check-input" value="male" formControlName="gender"> Homem
-      </label>
-      <label class="form-check-label" style="color: #777;">
-        <input type="radio" class="form-check-input" value="female" formControlName="gender"> Mulher
-      </label>
-    </div>
+      <div class="gender-selection mb-3">
+        <label class="gender-label"> Eu sou:</label>
+        <div class="gender-options">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="male" formControlName="gender"> Homem
+          </label>
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="female" formControlName="gender"> Mulher
+          </label>
+        </div>
+      </div>
 
-    <app-text-input [formControl]="$any(registerForm.controls['username'])"
-                    [label]="'Usuário'"
-                    class="input-group-geek"
-    ></app-text-input>
+      <div class="form-fields">
+        <app-text-input
+          [formControl]="$any(registerForm.controls['username'])"
+          [label]="'Usuário'"
+          class="input-group-geek"
+        ></app-text-input>
 
-    <app-text-input [formControl]="$any(registerForm.controls['knownAs'])"
-                    [label]="'Apelido'"
-                    class="input-group-geek"
-    ></app-text-input>
+        <app-text-input
+          [formControl]="$any(registerForm.controls['knownAs'])"
+          [label]="'Apelido'"
+          class="input-group-geek"
+        ></app-text-input>
 
-    <app-text-input [formControl]="$any(registerForm.controls['dateOfBirth'])" type="date"
-                    [label]="'Data de Nascimento'"
-                    class="input-group-geek"
-    ></app-text-input>
+        <app-text-input
+          [formControl]="$any(registerForm.controls['dateOfBirth'])"
+          type="date"
+          [label]="'Data de Nascimento'"
+          class="input-group-geek"
+        ></app-text-input>
 
-    <app-text-input [formControl]="$any(registerForm.controls['city'])"
-                    [label]="'Cidade'"
-                    class="input-group-geek"
-    ></app-text-input>
+        <app-text-input
+          [formControl]="$any(registerForm.controls['city'])"
+          [label]="'Cidade'"
+          class="input-group-geek"
+        ></app-text-input>
 
-    <app-text-input [formControl]="$any(registerForm.controls['country'])"
-                    [label]="'País'"
-                    class="input-group-geek"
-    ></app-text-input>
+        <app-text-input
+          [formControl]="$any(registerForm.controls['country'])"
+          [label]="'País'"
+          class="input-group-geek"
+        ></app-text-input>
 
-    <app-text-input [formControl]="$any(registerForm.controls['password'])"
-                    [label]="'Senha'" [type]="'password'"
-                    class="input-group-geek"
-    ></app-text-input>
+        <app-text-input
+          [formControl]="$any(registerForm.controls['password'])"
+          [label]="'Senha'"
+          [type]="'password'"
+          class="input-group-geek"
+        ></app-text-input>
 
-    <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])"
-                    [label]="'Confirmar Senha'" [type]="'password'"
-                    class="input-group-geek"
-    ></app-text-input>
+        <app-text-input
+          [formControl]="$any(registerForm.controls['confirmPassword'])"
+          [label]="'Confirmar Senha'"
+          [type]="'password'"
+          class="input-group-geek"
+        ></app-text-input>
+      </div>
 
-    <div class="mt-4 d-flex justify-content-between">
-      <button class="btn back-btn" (click)="cancel()" type="button"
-              style="border-radius: 15px; font-weight: 500; padding: 9px 0; background-color: transparent; color: #FF4B91; border: 1px solid rgba(255, 75, 145, 0.3); width: 48%; transition: all 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left me-1" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
-        </svg>
-        Voltar
-      </button>
-      <button class="btn register-btn" type="submit"
-              style="border-radius: 15px; font-weight: 500; padding: 9px 0; background: linear-gradient(135deg, #FF4B91, #FF78AB); color: white; border: none; width: 48%; box-shadow: 0 3px 10px rgba(255, 75, 145, 0.2); transition: all 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller me-1" viewBox="0 0 16 16">
-          <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>
-        </svg>
-        Registrar-se
-      </button>
-    </div>
+      @if(validationErrors){
+        <div class="validation-errors">
+          <ul>
+            @for(error of validationErrors; track $index){
+              <li>{{error}}</li>
+            }
+          </ul>
+        </div>
+      }
 
-    <div class="text-center mt-4">
-      <div style="background-color: rgba(190, 248, 255, 0.3); height: 1px; margin-bottom: 15px;"></div>
-      <p style="color: #777; font-size: 0.8rem; line-height: 1.4;">
-        Ao se registrar, você concorda com nossos
-        <a href="#" style="color: #FF4B91; text-decoration: none; font-weight: 500;">Termos</a> e
-        <a href="#" style="color: #FF4B91; text-decoration: none; font-weight: 500;">Política de Privacidade</a>
-      </p>
-    </div>
-  </form>
+      <div class="form-actions">
+        <button
+          class="btn back-btn"
+          (click)="cancel()"
+          type="button"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left me-1" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+          </svg>
+          Voltar
+        </button>
+        <button
+          class="btn register-btn"
+          type="submit"
+          [disabled]="!registerForm.valid"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller me-1" viewBox="0 0 16 16">
+            <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>
+          </svg>
+          Registrar-se
+        </button>
+      </div>
+
+      <div class="form-footer">
+        <div class="divider"></div>
+        <p>
+          Ao se registrar, você concorda com nossos
+          <a href="#" class="terms-link">Termos</a> e
+          <a href="#" class="terms-link">Política de Privacidade</a>
+        </p>
+      </div>
+    </form>
+  </div>
 </div>
-
-<p>Form value: {{registerForm.value | json}}</p>
-<p>Form status: {{registerForm.status | json}}</p>

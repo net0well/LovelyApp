@@ -76,9 +76,7 @@
     } @else {
 
       <div class="homepage-content">
-        <!-- Layout com dois painéis lado a lado fixos, sem empurrar para baixo -->
         <div class="flex-container">
-          <!-- Painel esquerdo fixo com as informações -->
           <div class="left-panel">
             <div class="intro-content">
               <div class="game-console">
@@ -120,7 +118,6 @@
             </div>
           </div>
 
-          <!-- Painel direito com o formulário ou CTA -->
           <div class="right-panel">
             <div class="panel-content" [ngClass]="{'fade-out': registerMode, 'hidden': registerMode}">
               <div class="geek-card">
@@ -137,7 +134,6 @@
               </div>
             </div>
 
-            <!-- Container do registro com animação de entrada -->
             <div class="register-container" [ngClass]="{'fade-in': registerMode, 'hidden': !registerMode}">
               <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>

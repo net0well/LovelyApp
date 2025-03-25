@@ -9,8 +9,8 @@
     <input [class.is-invalid]="control.touched && control.invalid" [type]="type()" class="form-control" [formControl]="control" placeholder="{{label()}}"
            style="border: none; padding: 10px 15px; font-size: 0.95rem;">
     <div *ngIf="control.hasError('required')" class="invalid-feedback text-end">{{label()}} é obrigatório</div>
-    <div *ngIf="control.hasError('minlenght')" class="invalid-feedback text-end">A {{label()}} deve ter no mínimo 6 letras</div>
-    <div *ngIf="control.hasError('maxlenght')" class="invalid-feedback text-end">A {{label()}} deve ter no máximo 12 letras</div>
+    <div *ngIf="control.hasError('minlength')" class="invalid-feedback text-end">A {{label()}} deve ter no mínimo 6 letras</div>
+    <div *ngIf="control.hasError('maxlength')" class="invalid-feedback text-end">A {{label()}} deve ter no máximo 12 letras</div>
     <div *ngIf="control.hasError('isMatching')" class="invalid-feedback text-end">Senhas não conferem</div>
   </div>
 </div>

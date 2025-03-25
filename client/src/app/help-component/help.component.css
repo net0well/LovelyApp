@@ -1,0 +1,54 @@
+/* help.component.css */
+.help-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  background: linear-gradient(135deg, #BEF8FF, #D9FAFF);
+}
+
+.help-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 75, 145, 0.15);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  border: 2px dashed #FF4B91;
+}
+
+.help-title {
+  color: #FF4B91;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.send-btn {
+  background-color: #FF4B91;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: #FF3077;
+}
+
+.send-btn:disabled {
+  background-color: #FFB6D0;
+  cursor: not-allowed;
+}
+
+.form-control {
+  border-color: #FF4B91;
+}
+
+.form-control:focus {
+  border-color: #FF4B91;
+  box-shadow: 0 0 0 0.2rem rgba(255, 75, 145, 0.25);
+}

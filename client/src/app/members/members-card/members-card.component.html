@@ -1,6 +1,6 @@
 <div class="card mb-4" style="border-radius: 18px; overflow: hidden; border: 2px solid #BEF8FF; box-shadow: 0 8px 20px rgba(190, 248, 255, 0.5); transition: all 0.3s ease;">
   <div class="card-img-wrapper" style="position: relative; overflow: hidden;">
-    <img src="{{member().photoUrl}}" alt="{{member().knownAs}}" class="card-img-top" style="transition: transform 0.5s ease;">
+    <img src="{{member().photoUrl || './assets/user.png'}}" alt="{{member().knownAs}}" class="card-img-top" style="transition: transform 0.5s ease;">
     <div class="image-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(255, 75, 145, 0.3), transparent 70%); opacity: 0; transition: opacity 0.3s ease;"></div>
 
   </div>
