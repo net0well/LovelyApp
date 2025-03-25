@@ -3,12 +3,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RegisterComponent } from '../register/register.component';
 import { RouterLink } from "@angular/router";
 import { AccountService } from '../_services/account.service';
-import {TitleCasePipe} from "@angular/common";
+import {NgClass, TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RegisterComponent, RouterLink, TitleCasePipe],
+  imports: [RegisterComponent, RouterLink, TitleCasePipe, NgClass],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

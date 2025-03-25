@@ -1,36 +1,68 @@
 <div class="register-container" style="max-width: 400px; margin: 40px auto; padding: 25px; border-radius: 16px; box-shadow: 0 4px 15px rgba(255, 75, 145, 0.12); background: linear-gradient(to bottom right, white, #FEFEFF); border: 1px solid rgba(190, 248, 255, 0.3);">
   <form [formGroup]="registerForm" (ngSubmit)="register()">
-  <div class="text-center mb-3">
-      <div style="background-color: rgba(255, 75, 145, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto;">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                fill="#FF4B91" stroke="none" />
-        </svg>
-      </div>
+    <div class="text-center mb-4">
       <h2 style="font-weight: 600; color: #FF4B91; letter-spacing: 0.5px; font-size: 1.6rem; margin-bottom: 8px;">Crie sua conta</h2>
-      <p style="color: #777; font-size: 0.9rem; margin-bottom: 20px;">Estamos animados para te ajudar a encontrar seu par perfeito</p>
+      <p style="color: #777; font-size: 0.9rem; margin-bottom: 20px;">Estamos animados para te ajudar a encontrar seu player 2 perfeito</p>
+    </div>
+
+    <div class="mb-3" style="padding: 8px; background-color: rgba(255, 75, 145, 0.05); border-radius: 10px;">
+      <label style="margin-right: 10px; color: #777;"> Eu sou:</label>
+      <label class="form-check-label" style="margin-right: 10px; color: #777;">
+        <input type="radio" class="form-check-input" value="male" formControlName="gender"> Homem
+      </label>
+      <label class="form-check-label" style="color: #777;">
+        <input type="radio" class="form-check-input" value="female" formControlName="gender"> Mulher
+      </label>
     </div>
 
     <app-text-input [formControl]="$any(registerForm.controls['username'])"
-                    [label]="'Usuario'"
+                    [label]="'Usuário'"
+                    class="input-group-geek"
+    ></app-text-input>
+
+    <app-text-input [formControl]="$any(registerForm.controls['knownAs'])"
+                    [label]="'Apelido'"
+                    class="input-group-geek"
+    ></app-text-input>
+
+    <app-text-input [formControl]="$any(registerForm.controls['dateOfBirth'])" type="date"
+                    [label]="'Data de Nascimento'"
+                    class="input-group-geek"
+    ></app-text-input>
+
+    <app-text-input [formControl]="$any(registerForm.controls['city'])"
+                    [label]="'Cidade'"
+                    class="input-group-geek"
+    ></app-text-input>
+
+    <app-text-input [formControl]="$any(registerForm.controls['country'])"
+                    [label]="'País'"
+                    class="input-group-geek"
     ></app-text-input>
 
     <app-text-input [formControl]="$any(registerForm.controls['password'])"
                     [label]="'Senha'" [type]="'password'"
+                    class="input-group-geek"
     ></app-text-input>
 
     <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])"
-                    [label]="'Confirme a senha'" [type]="'password'"
+                    [label]="'Confirmar Senha'" [type]="'password'"
+                    class="input-group-geek"
     ></app-text-input>
 
-
     <div class="mt-4 d-flex justify-content-between">
-      <button class="btn" (click)="cancel()" type="button"
-              style="border-radius: 15px; font-weight: 500; padding: 9px 0; background-color: transparent; color: #FF4B91; border: 1px solid rgba(255, 75, 145, 0.3); width: 48%; transition: all 0.2s ease;">
+      <button class="btn back-btn" (click)="cancel()" type="button"
+              style="border-radius: 15px; font-weight: 500; padding: 9px 0; background-color: transparent; color: #FF4B91; border: 1px solid rgba(255, 75, 145, 0.3); width: 48%; transition: all 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left me-1" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+        </svg>
         Voltar
       </button>
-      <button class="btn" type="submit"
-              style="border-radius: 15px; font-weight: 500; padding: 9px 0; background: linear-gradient(135deg, #FF4B91, #FF78AB); color: white; border: none; width: 48%; box-shadow: 0 3px 10px rgba(255, 75, 145, 0.2); transition: all 0.2s ease;">
+      <button class="btn register-btn" type="submit"
+              style="border-radius: 15px; font-weight: 500; padding: 9px 0; background: linear-gradient(135deg, #FF4B91, #FF78AB); color: white; border: none; width: 48%; box-shadow: 0 3px 10px rgba(255, 75, 145, 0.2); transition: all 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller me-1" viewBox="0 0 16 16">
+          <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>
+        </svg>
         Registrar-se
       </button>
     </div>
