@@ -1,10 +1,22 @@
 /* help.component.css */
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #BEF8FF, #D9FAFF);
+  overflow-y: auto;
+  z-index: 1;
+}
+
 .help-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 100px);
-  background: linear-gradient(135deg, #BEF8FF, #D9FAFF);
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .help-card {

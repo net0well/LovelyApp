@@ -1,6 +1,7 @@
 using System.Security.Cryptography.Xml;
 using API.DTOs;
 using API.Entities;
+using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -48,11 +49,13 @@ public class UserRepository : IUserRepository
             .FirstOrDefaultAsync(n => n.UserName == username);
     }
 
-    public async Task<IEnumerable<MemberDto>> GetMembersAsyc()
+    public async Task<PagedList<MemberDto>> GetMembersAsyc(UserParams userParams)
     {
-        return await _context.Users
-            .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-            .ToListAsync();
+        var query =  _context.Users
+            .ProjectTo<MemberDto>(_mapper.ConfigurationProvider);
+
+        return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
+
     }
     
     public async Task<MemberDto?> GetMemberAsync(string username)

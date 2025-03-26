@@ -5,7 +5,6 @@
   min-height: 100vh;
 }
 
-/* Layout flexível para os dois painéis */
 .homepage-content {
   position: relative;
 }
@@ -35,7 +34,6 @@
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Animações de fade */
 .fade-in {
   opacity: 1;
   transform: translateY(0);
