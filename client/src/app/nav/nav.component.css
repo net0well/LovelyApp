@@ -1,4 +1,3 @@
-/* Estilos base para a navbar */
 .navbar {
   background: linear-gradient(135deg, #BEF8FF, #D9FAFF);
   box-shadow: 0 4px 15px rgba(255, 75, 145, 0.15);
@@ -12,7 +11,6 @@
   z-index: 1030;
 }
 
-/* Forçar a largura do contêiner para evitar que o layout mude */
 .navbar .container {
   width: 100%;
   position: relative;
@@ -22,7 +20,6 @@
   box-sizing: border-box;
 }
 
-/* Forçar a barra de rolagem a sempre estar presente */
 html {
   overflow-y: scroll;
   margin-right: 0 !important;
@@ -30,11 +27,9 @@ html {
 
 body {
   padding-right: 0 !important;
-  /* Adicionar padding-top para compensar a navbar fixa */
-  padding-top: 80px; /* Ajuste conforme a altura da sua navbar */
+  padding-top: 80px;
 }
 
-/* Logo e marca */
 .navbar-brand {
   font-weight: 700;
   color: #FF4B91;
@@ -51,7 +46,6 @@ body {
   100% { transform: scale(1); }
 }
 
-/* Estilo dos itens de navegação - usando box-shadow em vez de border */
 .nav-link {
   font-weight: 600;
   border-radius: 15px;
@@ -60,7 +54,7 @@ body {
   color: #FF4B91;
   margin: 0 3px;
   position: relative;
-  border: none !important; /* Forçar sem borda */
+  border: none !important;
 }
 
 .nav-link:hover {
@@ -84,14 +78,12 @@ body {
   pointer-events: none;
 }
 
-/* Garantir que o colapso da navbar seja estável */
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
   width: 100%;
 }
 
-/* Dropdown do usuário */
 .dropdown-toggle {
   font-weight: 600;
   color: #FF4B91;
@@ -126,7 +118,6 @@ body {
   margin: 5px 0;
 }
 
-/* Formulário de login */
 .form-control {
   border-radius: 15px;
   border: 1px solid #FF4B91;
@@ -139,7 +130,6 @@ body {
   border-color: #FF4B91;
 }
 
-/* Botão de login */
 .login-btn {
   border-radius: 15px;
   font-weight: 600;
@@ -160,14 +150,12 @@ body {
   transform: translateY(0);
 }
 
-/* Botão de alternância para mobile */
 .navbar-toggler {
   border: none;
   background-color: rgba(255, 75, 145, 0.1);
   border-radius: 8px;
 }
 
-/* Responsividade */
 @media (max-width: 767px) {
   .nav-item {
     margin-bottom: 5px;
@@ -186,4 +174,23 @@ body {
     width: 100%;
     margin-top: 5px;
   }
+}
+
+.navbar-brand img {
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1);
+}
+
+.heart-pulse {
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
