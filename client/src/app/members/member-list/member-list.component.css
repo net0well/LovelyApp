@@ -1,0 +1,28 @@
+::ng-deep .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+::ng-deep .pagination > li > a {
+  color: #FF4B91;
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+::ng-deep .pagination > li > a:hover,
+::ng-deep .pagination > li.active > a {
+  background: #FF4B91;
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 75, 145, 0.3);
+}
+
+::ng-deep .pagination > li.disabled > a {
+  color: #ccc;
+  cursor: not-allowed;
+}
