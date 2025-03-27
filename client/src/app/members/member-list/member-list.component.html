@@ -1,14 +1,74 @@
-<div class="row">
-    @for (member of memberService.paginatedResult()?.items; track member.id)
-    {
-      <div class="col-2">
+<div class="row members-list-container">
+  <div class="text-center mt-3 title-section">
+    <h2 class="members-title">Seus matches - {{memberService.paginatedResult()?.pagination?.totalItems}}</h2>
+  </div>
+
+  <div class="container mt-3">
+    <form #form="ngForm" (ngSubmit)="loadMembers()" class="filter-form">
+      <div class="filter-group">
+        <div class="filter-item">
+          <label class="filter-label">Idade mínima:</label>
+          <input
+            type="number"
+            class="filter-input"
+            name="minAge"
+            [(ngModel)]="userParams.minAge"
+            (blur)="validateMinAge()"
+            placeholder="Min"
+          >
+        </div>
+
+        <div class="filter-item">
+          <label class="filter-label">Idade máxima:</label>
+          <input
+            type="number"
+            class="filter-input"
+            name="maxAge"
+            [(ngModel)]="userParams.maxAge"
+            placeholder="Max"
+          >
+        </div>
+
+        <div class="filter-item">
+          <label class="filter-label">Mostre:</label>
+          <select
+            name="gender"
+            class="filter-select"
+            [(ngModel)]="userParams.gender"
+          >
+            @for(gender of genderList; track gender.value){
+              <option [value]="gender.value">{{gender.display}}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-actions">
+        <button class="btn-apply" type="submit">
+          Aplicar filtros
+        </button>
+        <button
+          (click)="resetFilters()"
+          class="btn-reset"
+          type="button"
+        >
+          Resetar filtros
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="members-grid">
+    @for (member of memberService.paginatedResult()?.items; track member.id) {
+      <div class="member-card-wrapper">
         <app-members-card [member]="member"></app-members-card>
       </div>
     }
+  </div>
 </div>
 
 @if(memberService.paginatedResult()?.pagination){
-  <div class="d-flex justify-content-center">
+  <div class="pagination-container">
     <pagination
       [boundaryLinks]="true"
       [totalItems]="memberService.paginatedResult()?.pagination!.totalItems"
@@ -19,9 +79,7 @@
       nextText="&rsaquo;"
       firstText="&laquo;"
       lastText="&raquo;"
-      class="custom-pagination">
-    </pagination>
+      class="custom-pagination"
+    ></pagination>
   </div>
 }
-
-
