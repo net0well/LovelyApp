@@ -55,6 +55,33 @@
           Resetar filtros
         </button>
       </div>
+
+      <div class="order-buttons-container">
+        <div class="order-btn-group">
+          <button
+            type="button"
+            class="order-btn"
+            [class.active]="userParams.orderBy === 'lastActive'"
+            name="orderBy"
+            (click)="loadMembers()"
+            btnRadio="lastActive"
+            [(ngModel)]="userParams.orderBy"
+          >
+            Última atividade
+          </button>
+          <button
+            type="button"
+            class="order-btn"
+            [class.active]="userParams.orderBy === 'created'"
+            name="orderBy"
+            (click)="loadMembers()"
+            btnRadio="created"
+            [(ngModel)]="userParams.orderBy"
+          >
+            Novos usuários
+          </button>
+        </div>
+      </div>
     </form>
   </div>
 

@@ -83,6 +83,52 @@
   background-color: #FFF0F5;
 }
 
+.order-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.order-btn-group {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(255, 75, 145, 0.2);
+}
+
+.order-btn {
+  background-color: white;
+  color: #FF4B91;
+  border: 1px solid #FF4B91;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  outline: none;
+  border-right: none;
+}
+
+.order-btn:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.order-btn:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-right: 1px solid #FF4B91;
+}
+
+.order-btn:hover {
+  background-color: rgba(255, 75, 145, 0.1);
+}
+
+.order-btn.active {
+  background-color: #FF4B91;
+  color: white;
+}
+
 .members-grid {
   display: flex;
   flex-wrap: wrap;
