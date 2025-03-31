@@ -1,6 +1,18 @@
+.card {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #BEF8FF;
+  box-shadow: 0 8px 20px rgba(190, 248, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(255, 75, 145, 0.3);
+}
+
+.card-img-top {
+  transition: transform 0.5s ease;
 }
 
 .card:hover .card-img-top {
@@ -13,6 +25,42 @@
 
 .card:hover .floating-hearts {
   opacity: 0.8;
+}
+
+.age-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #FF4B91;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(255, 75, 145, 0.5);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.card:hover .age-badge {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.btn-primary {
+  background-color: #FF4B91;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 3px 10px rgba(255, 75, 145, 0.3);
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
@@ -42,7 +90,6 @@
   animation-delay: 1s;
 }
 
-/* Animação de pulsação para o botão do meio */
 @keyframes pulse {
   0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 75, 145, 0.7); }
   70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 75, 145, 0); }
