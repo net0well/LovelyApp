@@ -12,7 +12,7 @@
             type="number"
             class="filter-input"
             name="minAge"
-            [(ngModel)]="userParams.minAge"
+            [(ngModel)]="memberService.userParams().minAge"
             (blur)="validateMinAge()"
             placeholder="Min"
           >
@@ -24,7 +24,7 @@
             type="number"
             class="filter-input"
             name="maxAge"
-            [(ngModel)]="userParams.maxAge"
+            [(ngModel)]="memberService.userParams().maxAge"
             placeholder="Max"
           >
         </div>
@@ -34,7 +34,7 @@
           <select
             name="gender"
             class="filter-select"
-            [(ngModel)]="userParams.gender"
+            [(ngModel)]="memberService.userParams().gender"
           >
             @for(gender of genderList; track gender.value){
               <option [value]="gender.value">{{gender.display}}</option>
@@ -61,22 +61,22 @@
           <button
             type="button"
             class="order-btn"
-            [class.active]="userParams.orderBy === 'lastActive'"
+            [class.active]="memberService.userParams().orderBy === 'lastActive'"
             name="orderBy"
             (click)="loadMembers()"
             btnRadio="lastActive"
-            [(ngModel)]="userParams.orderBy"
+            [(ngModel)]="memberService.userParams().orderBy"
           >
             Última atividade
           </button>
           <button
             type="button"
             class="order-btn"
-            [class.active]="userParams.orderBy === 'created'"
+            [class.active]="memberService.userParams().orderBy === 'created'"
             name="orderBy"
             (click)="loadMembers()"
             btnRadio="created"
-            [(ngModel)]="userParams.orderBy"
+            [(ngModel)]="memberService.userParams().orderBy"
           >
             Novos usuários
           </button>
