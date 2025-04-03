@@ -1,1 +1,72 @@
-<p class="mt-5">lists works!</p>
+<div class="lists-container">
+  <!-- Header Section com Título Dinâmico -->
+  <div class="header-section">
+    <h2 class="main-title">{{getTitle()}}</h2>
+  </div>
+
+  <!-- Filter Controls Section - Com largura fixa e centralizado -->
+  <div class="filter-controls">
+    <div class="filter-buttons-container">
+      <div class="filter-buttons">
+        <button class="filter-btn"
+                [ngClass]="{'active': predicate === 'liked'}"
+                btnRadio="liked"
+                [(ngModel)]="predicate"
+                (click)="loadLikes()">
+          <i class="fa fa-heart-o me-1"></i>
+          <span>Pessoas que eu curti</span>
+        </button>
+
+        <button class="filter-btn"
+                [ngClass]="{'active': predicate === 'likedBy'}"
+                btnRadio="likedBy"
+                [(ngModel)]="predicate"
+                (click)="loadLikes()">
+          <i class="fa fa-users me-1"></i>
+          <span>Pessoas que me curtiram</span>
+        </button>
+
+        <button class="filter-btn"
+                [ngClass]="{'active': predicate === 'mutual'}"
+                btnRadio="mutual"
+                [(ngModel)]="predicate"
+                (click)="loadLikes()">
+          <i class="fa fa-heart me-1"></i>
+          <span>Deram match</span>
+          <i class="fa fa-heart ms-1 heart-beat"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div class="results-section">
+    <!-- Grid de Membros - Cards menores e menos espaçados -->
+    <div class="members-grid">
+      @for(member of members; track member.id){
+        <div class="member-card-wrapper">
+          <app-members-card [member]="member"/>
+        </div>
+      } @empty {
+        <div class="empty-state">
+          <div class="empty-icon">
+            <i class="fa fa-heart"></i>
+          </div>
+          <h4 class="empty-title">Nenhum perfil encontrado</h4>
+          <p class="empty-message">
+            @if(predicate === 'liked'){
+              Você ainda não curtiu ninguém. Explore perfis e encontre pessoas interessantes!
+            } @else if(predicate === 'likedBy'){
+              Ninguém curtiu seu perfil ainda. Atualize suas fotos para chamar mais atenção!
+            } @else {
+              Você ainda não tem matches. Continue curtindo perfis para encontrar conexões!
+            }
+          </p>
+          <button class="explore-btn" routerLink="/members">
+            <i class="fa fa-search me-2"></i>Explorar perfis
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</div>
