@@ -1,6 +1,7 @@
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
+using API.Helpers;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ public class LikesController : BaseApiController
 
         if (sourceUserId == targetUserId) return BadRequest("You cannot like yourself");
 
-        var existingLike = await likesRepository.GetUserLikeAsync(sourceUserId, targetUserId);
+        var existingLike = await likesRepository.GetUserLike(sourceUserId, targetUserId);
 
         if (existingLike == null)
         {
@@ -39,7 +40,7 @@ public class LikesController : BaseApiController
             likesRepository.DeleteLike(existingLike);
         }
 
-        if (await likesRepository.SaveChangesAsync()) return Ok();
+        if (await likesRepository.SaveChanges()) return Ok();
 
         return BadRequest("Failed to update like");
     }
@@ -47,13 +48,17 @@ public class LikesController : BaseApiController
     [HttpGet("list")]
     public async Task<ActionResult<IEnumerable<int>>> GetCurrentUserLikeIds()
     {
-        return Ok(await likesRepository.GetCurrentUserLikeIdsAsync(User.GetUserId()));
+        return Ok(await likesRepository.GetCurrentUserLikeIds(User.GetUserId()));
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<MemberDto>>> GetUserLikes(string predicate)
+    public async Task<ActionResult<IEnumerable<MemberDto>>> GetUserLikes([FromQuery] LikesParams likesParams)
     {
-        var users = await likesRepository.GetUserLikesAsync(predicate, User.GetUserId());
+        likesParams.UserId = User.GetUserId();
+        
+        var users = await likesRepository.GetUserLikes(likesParams);
+        
+        Response.AddPaginationHeader(users);
 
         return Ok(users);
     }

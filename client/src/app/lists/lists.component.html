@@ -1,10 +1,8 @@
 <div class="lists-container">
-  <!-- Header Section com Título Dinâmico -->
   <div class="header-section">
     <h2 class="main-title">{{getTitle()}}</h2>
   </div>
 
-  <!-- Filter Controls Section - Com largura fixa e centralizado -->
   <div class="filter-controls">
     <div class="filter-buttons-container">
       <div class="filter-buttons">
@@ -38,12 +36,11 @@
       </div>
     </div>
   </div>
-
-  <!-- Results Section -->
   <div class="results-section">
-    <!-- Grid de Membros - Cards menores e menos espaçados -->
+
     <div class="members-grid">
-      @for(member of members; track member.id){
+      @for(member of members; track member.id)
+      {
         <div class="member-card-wrapper">
           <app-members-card [member]="member"/>
         </div>
