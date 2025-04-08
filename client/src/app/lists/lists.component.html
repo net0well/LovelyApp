@@ -39,31 +39,60 @@
   <div class="results-section">
 
     <div class="members-grid">
-      @for(member of members; track member.id)
+      @for(member of likesService.paginatedResult()?.items; track member.id)
       {
-        <div class="member-card-wrapper">
+      <div class="member-card-wrapper" [ngClass]="{'blurred-card': predicate === 'likedBy' && !hasUserLikedMember(member)}">
           <app-members-card [member]="member"/>
+
+          @if(predicate === 'likedBy' && !hasUserLikedMember(member)){
+      <div class="card-overlay" (click)="likeMember(member)">
+        <div class="heart-icon">
+          <i class="fa fa-heart-o"></i>
         </div>
+        <div class="unlock-message">
+          Curtir para desbloquear
+        </div>
+      </div>
+      }
+      </div>
       } @empty {
-        <div class="empty-state">
-          <div class="empty-icon">
-            <i class="fa fa-heart"></i>
-          </div>
-          <h4 class="empty-title">Nenhum perfil encontrado</h4>
-          <p class="empty-message">
-            @if(predicate === 'liked'){
-              Você ainda não curtiu ninguém. Explore perfis e encontre pessoas interessantes!
-            } @else if(predicate === 'likedBy'){
-              Ninguém curtiu seu perfil ainda. Atualize suas fotos para chamar mais atenção!
-            } @else {
-              Você ainda não tem matches. Continue curtindo perfis para encontrar conexões!
-            }
-          </p>
-          <button class="explore-btn" routerLink="/members">
-            <i class="fa fa-search me-2"></i>Explorar perfis
-          </button>
+      <div class="empty-state">
+        <div class="empty-icon">
+          <i class="fa fa-heart"></i>
         </div>
+        <h4 class="empty-title">Nenhum perfil encontrado</h4>
+        <p class="empty-message">
+          @if(predicate === 'liked'){
+      Você ainda não curtiu ninguém. Explore perfis e encontre pessoas interessantes!
+      } @else if(predicate === 'likedBy'){
+      Ninguém curtiu seu perfil ainda. Atualize suas fotos para chamar mais atenção!
+      } @else {
+      Você ainda não tem matches. Continue curtindo perfis para encontrar conexões!
+      }
+      </p>
+      <button class="explore-btn" routerLink="/members">
+        <i class="fa fa-search me-2"></i>Explorar perfis
+      </button>
+    </div>
       }
     </div>
   </div>
 </div>
+
+@if(likesService.paginatedResult()?.pagination){
+<div class="pagination-container">
+<pagination
+[boundaryLinks]="true"
+[totalItems]="likesService.paginatedResult()?.pagination!.totalItems"
+[itemsPerPage]="likesService.paginatedResult()?.pagination!.itemsPerPage"
+(pageChanged)="pageChanged($event)"
+[(ngModel)]="likesService.paginatedResult()?.pagination!.currentPage"
+[maxSize]="6"
+previousText="&lsaquo;"
+nextText="&rsaquo;"
+firstText="&laquo;"
+lastText="&raquo;"
+class="custom-pagination"
+></pagination>
+</div>
+}
