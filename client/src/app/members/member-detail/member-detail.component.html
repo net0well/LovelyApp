@@ -110,15 +110,9 @@
               </tab>
 
               <tab heading="Mensagens" style="color: white; font-weight: 500;">
-                <div class="tab-content" style="padding: 25px;">
-                  <div class="messages-coming-soon" style="text-align: center; padding: 40px 20px;">
-                    <div style="width: 80px; height: 80px; background-color: rgba(255, 75, 145, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#FF4B91" class="bi bi-envelope-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                        <path d="M8 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-                      </svg>
-                    </div>
-                    <app-member-messages [username]="member.userName"></app-member-messages>
+                <div class="tab-content" style="padding: 0; height: 100%;">
+                  <div class="messages-container" style="height: 100%; min-height: 500px;">
+                    <app-member-messages [username]="member.userName" style="height: 100%; display: block;"></app-member-messages>
                   </div>
                 </div>
               </tab>
