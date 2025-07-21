@@ -1,28 +1,48 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import { MembersService } from '../../_services/members.service';
 import {ActivatedRoute} from "@angular/router";
 import { Member } from '../../_models/member';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import {TabDirective, TabsetComponent, TabsModule} from 'ngx-bootstrap/tabs';
 import {GalleryItem, GalleryModule, ImageItem} from 'ng-gallery';
-import {TimeagoModule, TimeagoPipe} from "ngx-timeago";
 import {CommonModule, DatePipe} from "@angular/common";
 import {MemberMessagesComponent} from "../member-messages/member-messages.component";
+import {MessageService} from "../../_services/message.service";
+import {Message} from "../../_models/message";
 
 @Component({
   selector: 'app-member-detail',
   standalone: true,
-  imports: [TabsModule, GalleryModule, DatePipe, MemberMessagesComponent],
+  imports: [TabsModule, GalleryModule, DatePipe, MemberMessagesComponent, CommonModule],
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.css'
 })
 export class MemberDetailComponent implements OnInit{
+  @ViewChild('memberTabs') memberTabs?: TabsetComponent;
+  private messageService = inject(MessageService);
   private memberService = inject(MembersService);
   private route = inject(ActivatedRoute);
   member?: Member;
   images: GalleryItem[] = [];
+  activeTab?: TabDirective;
+  messages: Message[] = [];
 
   ngOnInit(): void {
       this.loadMember()
+  }
+
+
+  onTabActivated(data: TabDirective): void {
+    console.log('Tab ativada:', data.heading); // Debug
+    console.log('Messages length:', this.messages.length); // Debug
+    console.log('Member exists:', !!this.member); // Debug
+    this.activeTab = data;
+    if(this.activeTab.heading == 'Mensagens' && this.messages.length === 0 && this.member) {
+      this.messageService.getMessageThread(this.member.userName).subscribe({
+        next: messages => this.messages = messages
+      })
+
+      console.log(this.member.userName);
+    }
   }
 
   loadMember() {

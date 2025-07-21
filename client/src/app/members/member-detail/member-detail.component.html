@@ -67,10 +67,10 @@
       </div>
 
       <div class="col-8">
-        <div class="info-content" style="background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 25px rgba(190, 248, 255, 0.4); height: 100%;">
+        <div class="info-content" style="background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 25px rgba(190, 248, 255, 0.4); height: 100%;" #memberTabs>
           <div class="tab-header" style="background-color: #BEF8FF; padding: 15px; border-radius: 18px 18px 0 0;">
             <tabset class="member-tabset" style="border: none;">
-              <tab heading="Sobre {{member.knownAs}}" style="color: white; font-weight: 500;">
+              <tab heading="Sobre {{member.knownAs}}" style="color: white; font-weight: 500;" (selectTab)="onTabActivated($event)">
                 <div class="tab-content" style="padding: 25px;">
                   <div class="section-title" style="display: flex; align-items: center; margin-bottom: 15px;">
                     <div style="background-color: rgba(255, 75, 145, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
@@ -98,7 +98,7 @@
                 </div>
               </tab>
 
-              <tab heading="Fotos" #photoTab="tab" style="color: white; font-weight: 500;">
+              <tab heading="Fotos" #photoTab="tab" style="color: white; font-weight: 500;" (selectTab)="onTabActivated($event)" >
                 <div class="tab-content" style="padding: 25px;">
                   @if(photoTab.active)
                   {
@@ -109,10 +109,14 @@
                 </div>
               </tab>
 
-              <tab heading="Mensagens" style="color: white; font-weight: 500;">
+              <tab heading="Mensagens" style="color: white; font-weight: 500;" (selectTab)="onTabActivated($event)">
                 <div class="tab-content" style="padding: 0; height: 100%;">
                   <div class="messages-container" style="height: 100%; min-height: 500px;">
-                    <app-member-messages [username]="member.userName" style="height: 100%; display: block;"></app-member-messages>
+                    <app-member-messages
+                      [username]="member.userName"
+                      style="height: 100%; display: block;"
+                      [messages]="messages"
+                    ></app-member-messages>
                   </div>
                 </div>
               </tab>

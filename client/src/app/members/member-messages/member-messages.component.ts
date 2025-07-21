@@ -7,9 +7,10 @@ import {
   TimeagoDefaultFormatter,
   TimeagoFormatter,
   TimeagoIntl,
-  TimeagoModule
-} from "ngx-timeago";
+  TimeagoModule, TimeagoPipe
+} from 'ngx-timeago';
 import {CommonModule} from "@angular/common";
+import {AccountService} from "../../_services/account.service";
 
 @Component({
   selector: 'app-member-messages',
@@ -19,7 +20,7 @@ import {CommonModule} from "@angular/common";
     CommonModule
   ],
   providers: [
-    { provide: TimeagoFormatter, useClass: TimeagoDefaultFormatter },
+    { provide: TimeagoFormatter, useClass: TimeagoDefaultFormatter},
     { provide: TimeagoClock, useClass: TimeagoDefaultClock },
     TimeagoIntl
   ],
@@ -28,16 +29,24 @@ import {CommonModule} from "@angular/common";
 })
 export class MemberMessagesComponent implements OnInit {
   private messageService = inject(MessageService);
+  private accountService = inject(AccountService);
+
   username = input.required<string>();
-  messages: Message[] = [];
+  messages = input.required<Message[]>();
 
   ngOnInit(): void {
-    this.loadMessages();
+    console.log('MemberMessagesComponent initialized');
+    console.log('Username:', this.username());
+    console.log('Messages:', this.messages());
   }
 
-  loadMessages(){
-    this.messageService.getMessageThread(this.username()).subscribe({
-      next: messages => this.messages = messages
-    })
+  // Função para obter o username atual
+  getCurrentUsername(): string {
+    return this.accountService.currentUser()?.username || '';
+  }
+
+  // Função trackBy para otimizar a renderização da lista
+  trackByMessageId(index: number, message: Message): any {
+    return message.id;
   }
 }
