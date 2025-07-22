@@ -6,11 +6,12 @@ import { TimeagoModule, TimeagoFormatter, TimeagoDefaultFormatter, TimeagoClock,
 import {Message} from "../_models/message";
 import {RouterLink} from "@angular/router";
 import {PaginationModule} from "ngx-bootstrap/pagination";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-messages',
   standalone: true,
-  imports: [ButtonsModule, FormsModule, TimeagoModule, RouterLink, PaginationModule],
+  imports: [ButtonsModule, FormsModule, TimeagoModule, RouterLink, PaginationModule, CommonModule],
   providers: [
     { provide: TimeagoFormatter, useClass: TimeagoDefaultFormatter },
     { provide: TimeagoClock, useClass: TimeagoDefaultClock },

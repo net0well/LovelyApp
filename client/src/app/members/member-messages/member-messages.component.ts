@@ -35,17 +35,12 @@ export class MemberMessagesComponent implements OnInit {
   messages = input.required<Message[]>();
 
   ngOnInit(): void {
-    console.log('MemberMessagesComponent initialized');
-    console.log('Username:', this.username());
-    console.log('Messages:', this.messages());
   }
 
-  // Função para obter o username atual
   getCurrentUsername(): string {
     return this.accountService.currentUser()?.username || '';
   }
 
-  // Função trackBy para otimizar a renderização da lista
   trackByMessageId(index: number, message: Message): any {
     return message.id;
   }

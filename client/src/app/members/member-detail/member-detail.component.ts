@@ -28,13 +28,16 @@ export class MemberDetailComponent implements OnInit{
 
   ngOnInit(): void {
       this.loadMember()
+
+      this.route.queryParams.subscribe({
+        next: params => {
+          params['tab'] && this.selectTab(params['tab'])
+        }
+      })
   }
 
 
   onTabActivated(data: TabDirective): void {
-    console.log('Tab ativada:', data.heading); // Debug
-    console.log('Messages length:', this.messages.length); // Debug
-    console.log('Member exists:', !!this.member); // Debug
     this.activeTab = data;
     if(this.activeTab.heading == 'Mensagens' && this.messages.length === 0 && this.member) {
       this.messageService.getMessageThread(this.member.userName).subscribe({
@@ -42,6 +45,15 @@ export class MemberDetailComponent implements OnInit{
       })
 
       console.log(this.member.userName);
+    }
+  }
+
+  selectTab(heading: string){
+    if(this.memberTabs){
+      const messageTab = this.memberTabs.tabs.find(x => x.heading === heading);
+      if(messageTab){
+        messageTab.active = true;
+      }
     }
   }
 

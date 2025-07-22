@@ -37,7 +37,7 @@
     } @else {
       <div class="messages-list">
         @for(message of messageService.paginatedResult()?.items; track message.id){
-          <div class="message-card" routerLink="{{getRoute(message)}}">
+          <div class="message-card" routerLink="{{getRoute(message)}}" [queryParams]="{tab: 'Mensagens'}">
             <div class="message-avatar">
               <img [src]="container === 'Outbox' ? (message.recipientPhotoUrl || './assets/user.png') : (message.senderPhotoUrl || './assets/user.png')"
                    [alt]="container === 'Outbox' ? message.recipientUsername : message.senderUsername">
